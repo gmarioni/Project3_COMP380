@@ -1,1 +1,0 @@
-print("Here we start the coding for project 3!")
