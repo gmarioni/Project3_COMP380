@@ -1,4 +1,3 @@
-from xmlrpc.client import Boolean
 import mysql.connector
 
 class Database:
