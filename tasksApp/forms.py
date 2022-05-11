@@ -4,4 +4,4 @@ from .models import Tasks
 class TasksForm(ModelForm):
     class Meta:
         model = Tasks
-        exclude = ['task_id','deliverable_id']
+        fields = '__all__'

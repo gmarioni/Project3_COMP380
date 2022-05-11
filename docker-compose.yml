@@ -8,7 +8,6 @@ services:
     image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-        - ./bootstrap.sql:/docker-entrypoint-initdb.d/bootstrap.sql
         - ./data.sql:/data.sql
     ports:
       - 8806:3306

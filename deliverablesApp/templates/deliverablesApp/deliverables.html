@@ -7,7 +7,7 @@
     <div>
         {% for obj in deliverables %}
         <div>
-            <h5>DELIVERABLE-{{ obj.deliverable_id }} - <a href="{% url 'deliverable' obj.deliverable_id %}">{{ obj.name }}</a></h5>
+            <h5>{{ obj.uuid }} - <a href="{% url 'deliverable' obj.id %}">{{ obj.name }}</a></h5>
         </div>
         {% endfor %}
     </div>

@@ -3,11 +3,11 @@
 {% block content %}
 <h1>Deliverables</h1>
 <div>
-    <a href="{% url 'update-deliverable' deliverable.deliverable_id %}">Edit</a>
-    <a href="{% url 'delete-deliverable' deliverable.deliverable_id %}">Delete</a>
+    <a href="{% url 'update-deliverable' deliverable.id %}">Edit</a>
+    <a href="{% url 'delete-deliverable' deliverable.id %}">Delete</a>
     <div>
         <div>
-            <h3>deliverable-{{ deliverable.deliverable_id }}</h5>
+            <h3>{{ deliverable.uuid }}</h5>
             <h3>{{ deliverable.name }}</h5>
             <h3>{{ deliverable.description }}</h5>
             <h5>{{ deliverable.assigned_to }}</h5>
