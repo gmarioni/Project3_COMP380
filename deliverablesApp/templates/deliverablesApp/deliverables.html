@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Deliverables</h1>
+<div>
+    <a href="{% url 'create-deliverable' %}">Create Deliverables</a>
+    <div>
+        {% for obj in deliverables %}
+        <div>
+            <h5>DELIVERABLE-{{ obj.deliverable_id }} - <a href="{% url 'deliverable' obj.deliverable_id %}">{{ obj.name }}</a></h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS pms;
-USE pms;
+CREATE DATABASE IF NOT EXISTS pm;
+USE pm;
 CREATE TABLE IF NOT EXISTS USERS (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     user_name CHAR(40)
@@ -118,17 +118,3 @@ INSERT INTO TASKS (name,description,assigned_to,deliverable_id) VALUES ("Design 
 INSERT INTO ISSUES (name,description,assigned_to,task_id) VALUES ("Filter Wrong Dates","Database Date format is different from users, need to transform date",(SELECT user_id FROM USERS WHERE user_name = "marioni"),(SELECT task_id FROM TASKS WHERE name = "Design GUI"));
 INSERT INTO ACTIONITEMS (name,description,date_created,issue_id) VALUES ("Date Transform Method","Method to transform dates approirately","2022-10-22",(SELECT issue_id FROM ISSUES where name = "Filter Wrong Dates"));
 INSERT INTO DECISIONS (name,description,date_created,issue_id,decision_maker) VALUES ("Decide on timeline","Do dates need to change due to the date filter issue?","2022-10-22",(SELECT issue_id FROM ISSUES where name = "Filter Wrong Dates"),(SELECT user_id FROM USERS where user_name = "amaro"));
-
-DELIMITER $$
-CREATE PROCEDURE get_tasks_by_deliverable_id (IN id INT)
-BEGIN
-    select * from TASKS where deliverable_id = id;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE get_issues_by_task_id (IN id INT)
-BEGIN
-    select * from ISSUES where task_id = id;
-END$$
-DELIMITER ;

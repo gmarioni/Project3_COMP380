@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Deliverables</h1>
+<div>
+    <a href="{% url 'update-task' task.task_id %}">Edit</a>
+    <a href="{% url 'delete-task' task.task_id %}">Delete</a>
+    <div>
+        <div>
+            <h3>TASK-{{ task.task_id }}</h5>
+            <h3>Task of: DELIVERABLE-{{ deliverable.deliverable_id }}</h3>
+            <h3>{{ task.name }}</h5>
+            <h3>{{ task.description }}</h5>
+            <h5>{{ task.assigned_to }}</h5>
+        </div>
+    </div>
+</div>
+{% endblock content %}

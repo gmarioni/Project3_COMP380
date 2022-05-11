@@ -1,0 +1,17 @@
+{% comment %} <a href="#">
+    <h1>Deliverables</h1>
+    <h1>Tasks</h1>
+    <h1>Issues</h1>
+    <h1>Action Items</h1>
+    <h1>Decisions</h1>
+</a> {% endcomment %}
+{% load static %}
+<header class="header header--loggedIn">
+    <div class="container">
+        <a href="{% url 'deliverables' %}" class="header__logo">
+            <h1>Deliverables</h1>
+        </a>
+        <a href="{% url 'tasks' %}" class="header__logo">
+            <h1>Tasks</h1>
+        </a>       
+</header>

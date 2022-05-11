@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Tasks</h1>
+<div>
+    <a href="{% url 'create-task' %}">Create tasks</a>
+    <div>
+        {% for task in tasks %}
+        <div>
+            <h5>task-{{ task.task_id }} - <a href="{% url 'task' task.task_id %}">{{ task.name }}</a></h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
