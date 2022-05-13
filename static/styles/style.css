@@ -99,6 +99,16 @@ a {
   color: var(--color-dark);
 }
 
+.btn--edit {
+  background-color: moccasin;
+  color: var(--color-dark);
+}
+
+.btn--delete {
+  background-color: var(--color-error);
+  color: var(--color-dark);
+}
+
 .btn:hover {
   opacity: 0.9;
 }
