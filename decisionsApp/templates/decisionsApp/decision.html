@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Decisions</h1>
+<div>
+    {% comment %} <a href="{% url 'update-task' task.id %}">Edit</a>
+    <a href="{% url 'delete-task' task.id %}">Delete</a> {% endcomment %}
+    <div>
+        <div>
+            <h3>{{ decision.uuid }}</h5>
+            <h3>Decision of: {{ decision.issue_id }}</h3>
+            <h3>{{ decision.name }}</h5>
+            <h3>{{ decision.description }}</h5>
+            <h5>{{ decision.decision_maker }}</h5>
+        </div>
+    </div>
+</div>
+{% endblock content %}

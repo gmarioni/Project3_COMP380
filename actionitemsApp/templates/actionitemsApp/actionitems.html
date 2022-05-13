@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Actionitems</h1>
+<div>
+    <a href="{% url 'create-actionitem' %}">Create Action Item</a>
+    <div>
+        {% for actionitem in actionitems %}
+        <div>
+            <h5>{{ actionitem.uuid }} - <a href="{% url 'actionitem' actionitem.id %}">{{ actionitem.name }}</a></h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="layout__body">
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form__group">
+            <label for="Issue_name">Issue</label>
+            {{form.issue_id}}
+        </div>
+        <div class="form__group">
+            <label for="decision_name">Decision Name</label>
+            {{form.name}}
+        </div>
+        <div class="form__group">
+            <label for="decision_description">Decision Description</label>
+            {{form.description}}
+        </div>
+        <div class="form__action">
+            <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+            <button class="btn btn--main" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

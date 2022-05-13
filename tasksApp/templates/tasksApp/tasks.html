@@ -7,7 +7,7 @@
     <div>
         {% for task in tasks %}
         <div>
-            <h5>task-{{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.name }}</a></h5>
+            <h5>{{ task.uuid }} - <a href="{% url 'task' task.id %}">{{ task.name }}</a></h5>
         </div>
         {% endfor %}
     </div>

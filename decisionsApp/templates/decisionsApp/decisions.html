@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="header">
+    <div>
+        <h2>Decisions</h2>
+    </div>
+    <a class="btn btn--main" href="{% url 'create-decision' %}">Create Decision</a>
+<div>
+    <div>
+        {% for decision in decisions %}
+        <div>
+            <h5>{{ decision.uuid }} - <a href="{% url 'decision' decision.id %}">{{ decision.name }}</a></h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

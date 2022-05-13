@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Action Items</h1>
+<div>
+    <a href="{% url 'update-actionitem' actionitem.id %}">Edit</a>
+    <a href="{% url 'delete-actionitem' actionitem.id %}">Delete</a>
+    <div>
+        <div>
+            <h3>{{ actionitem.uuid }}</h5>
+            <h3>Action Item of: {{ actionitem.issue_id }}</h3>
+            <h3>{{ actionitem.name }}</h5>
+            <h3>{{ actionitem.description }}</h5>
+            <h5>{{ actionitem.assigned_to }}</h5>
+        </div>
+    </div>
+</div>
+{% endblock content %}

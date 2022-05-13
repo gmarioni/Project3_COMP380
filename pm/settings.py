@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'deliverablesApp.apps.DeliverablesappConfig',
-    'tasksApp.apps.TasksappConfig'
+    'tasksApp.apps.TasksappConfig',
+    'issuesApp.apps.IssuesappConfig',
+    'actionitemsApp.apps.ActionitemsappConfig',
+    'decisionsApp.apps.DecisionsappConfig'
 ]
 
 MIDDLEWARE = [

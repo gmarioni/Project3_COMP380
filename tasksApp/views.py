@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from deliverablesApp.models import Deliverables
 from .models import Tasks
 from .forms import TasksForm
+import tasksApp.tasks as tfunc
 
 # Create your views here.
 def main(request):
@@ -12,16 +13,13 @@ def main(request):
 
 def item(request,pk):
     tobj = Tasks.objects.get(id=pk)
-    #dobj = Deliverables.objects.get(id=tobj.deliverable_id)
     context = {"task": tobj}
     return render(request,'tasksApp/task.html', context)
 
 def create(request):
     form = TasksForm
     if request.method == 'POST':
-        form = TasksForm(request.POST)
-        print(request.POST)
-        form.save()
+        tfunc.createTasks(request.POST)
         return redirect('tasks')
     context = {'form':form}
     return render(request, 'tasksApp/tasks_form.html', context)
@@ -30,8 +28,7 @@ def update(request,pk):
     task = Tasks.objects.get(id=pk)
     form = TasksForm(instance=task)
     if request.method == 'POST':
-        form = TasksForm(request.POST, instance=task)
-        form.save()
+        tfunc.updateTasks(task,request.POST)
         return redirect('tasks')
     context = {'form':form}
     return render(request, 'tasksApp/tasks_form.html', context)

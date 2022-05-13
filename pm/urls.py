@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import decisionsApp
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('core.urls')),
     path('deliverables/',include('deliverablesApp.urls'),name="deliverables"),
-    path('tasks/',include('tasksApp.urls'),name="tasks")
+    path('tasks/',include('tasksApp.urls'),name="tasks"),
+    path('issues/',include('issuesApp.urls'),name="issues"),
+    path('actionitems/',include('actionitemsApp.urls'),name="actionitems"),
+    path('decisions/',include('decisionsApp.urls'),name="decisions")
 ]

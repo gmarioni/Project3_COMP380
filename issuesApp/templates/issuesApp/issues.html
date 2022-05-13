@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h1>Issues</h1>
+<div>
+    <a href="{% url 'create-issue' %}">Create issues</a>
+    <div>
+        {% for issue in issues %}
+        <div>
+            <h5>{{ issue.uuid }} - <a href="{% url 'issue' issue.id %}">{{ issue.name }}</a></h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

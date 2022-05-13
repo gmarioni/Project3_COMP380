@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from .models import Tasks
+from .models import Decisions
 
-class TasksForm(ModelForm):
+class DecisionsForm(ModelForm):
     class Meta:
-        model = Tasks
+        model = Decisions
         fields = '__all__'
         exclude = ["uuid"]
