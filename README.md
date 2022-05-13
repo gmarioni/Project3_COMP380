@@ -17,30 +17,30 @@ On windows m
 https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe
 
 #### MacOS
-brew install python3
+`brew install python3`
 
 #### Linux/Ubuntu
-sudo apt install python3
+`sudo apt install python3`
 
 ### Download and install pip3
 #### Windows/MacOS
 Installed with previous commands
 
 #### Linux/Ubuntu
-sudo apt isntall python3-pip
+`sudo apt isntall python3-pip`
 
 ### Install Django
-pip3 install django
+`pip3 install django`
 
 ### Migrate and Load Data
 Migraions files are included already
 
 In the root of the project directory run the following commands
-python3 manage.py migrate
-python3 manage.py loaddata data.json
+`python3 manage.py migrate`
+`python3 manage.py loaddata data.json`
 
 ### Run Django Web Server
-python3 manage.py runserver
+`python3 manage.py runserver`
 
 If no errors happen
 
