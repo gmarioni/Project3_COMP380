@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, DateInput
 from .models import Tasks
 
 class TasksForm(ModelForm):
@@ -6,3 +6,9 @@ class TasksForm(ModelForm):
         model = Tasks
         fields = '__all__'
         exclude = ["uuid"]
+        widgets = {
+            'expected_start_date': DateInput(attrs={'type':'date'}),
+            'expected_end_date': DateInput(attrs={'type':'date'}),
+            'actual_start_date': DateInput(attrs={'type':'date'}),
+            'actual_end_date': DateInput(attrs={'type':'date'})
+        }

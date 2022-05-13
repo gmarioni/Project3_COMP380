@@ -1,18 +1,56 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Decisions</h1>
-<div>
-    {% comment %} <a href="{% url 'update-task' task.id %}">Edit</a>
-    <a href="{% url 'delete-task' task.id %}">Delete</a> {% endcomment %}
-    <div>
+<main class="layout layout--3">
+
+    <div class="container">
         <div>
-            <h3>{{ decision.uuid }}</h5>
-            <h3>Decision of: {{ decision.issue_id }}</h3>
-            <h3>{{ decision.name }}</h5>
-            <h3>{{ decision.description }}</h5>
-            <h5>{{ decision.decision_maker }}</h5>
+        </div>
+        <div class="itemListitem">
+            <div class="itemList__header">
+                <div>
+                    <h2>{{ decision.uuid }}</h2>
+                </div>
+                <a class="btn btn--edit" href="{% url 'update-decision' decision.id %}">
+                    Edit
+                </a>
+                <a class="btn btn--delete" href="{% url 'delete-decision' decision.id %}">
+                    Delete
+                </a>
+            </div>
+            <div class="itemList">
+                <div class="itemListitem__content">
+                    <h2>Name:</h2>
+                    <p>{{ decision.name }}<p><br>
+                    <h2><b>Description</b></h2>
+                    <p>{{ decision.description }}</p><br>
+                    <h2>Assigned To:</h2>
+                    <p>{{ decision.assigned_to }}</p><br>
+                    <h2>Priority:</h2>
+                    <p>{{ decision.priority_id }}</p><br>
+                    <h2>Impact:</h2>
+                    <p>{{ decision.impact_id }}</p><br>
+                    <h2>Date Created:</h2>
+                    <p>{{ decision.date_created}}</p><br>
+                    <h2>Date Neeed:</h2>
+                    <p>{{ decision.date_needed}}</p><br>
+                    <h2>Date of Decision Made:</h2>
+                    <p>{{ decision.date_made}}</p><br>
+                    <h2>Expected Completion Date:</h2>
+                    <p>{{ decision.expected_completion_date }}</p><br>
+                    <h2>Actual Completion Date:</h2>
+                    <p>{{ decision.actual_completion_date }}</p><br>
+                    <h2>Status:</h2>
+                    <p>{{ decision.status_id }}</p><br>
+                    <h2>Description of Status:</h2>
+                    <p>{{ decision.status_description }}</p><br>
+                    <h2>Date Updated:</h2>
+                    <p>{{ decision.update_date }}</p><br>
+                </div>
+            </div>
+        </div>
+        <div>
         </div>
     </div>
-</div>
+</main>
 {% endblock content %}

@@ -1,18 +1,56 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Tasks</h1>
-<div>
-    <a href="{% url 'update-task' task.id %}">Edit</a>
-    <a href="{% url 'delete-task' task.id %}">Delete</a>
-    <div>
+<main class="layout layout--3">
+
+    <div class="container">
         <div>
-            <h3>{{ task.uuid }}</h5>
-            <h3>Task of: {{ task.deliverable_id }}</h3>
-            <h3>{{ task.name }}</h5>
-            <h3>{{ task.description }}</h5>
-            <h5>{{ task.assigned_to }}</h5>
+        </div>
+        <div class="itemListitem">
+            <div class="itemList__header">
+                <div>
+                    <h2>{{ task.uuid }}</h2>
+                </div>
+                <a class="btn btn--edit" href="{% url 'update-task' task.id %}">
+                    Edit
+                </a>
+                <a class="btn btn--delete" href="{% url 'delete-task' task.id %}">
+                    Delete
+                </a>
+            </div>
+            <div class="itemList">
+                <div class="itemListitem__content">
+                    <h2>Name:</h2>
+                    <p>{{ task.name }}<p><br>
+                    <h2><b>Description</b></h2>
+                    <p>{{ task.description }}</p><br>
+                    <h2>Assigned To:</h2>
+                    <p>{{ task.assigned_to }}</p><br>
+                    <h2>Expected Start Date:</h2>
+                    <p>{{ task.expected_start_date }}</p><br>
+                    <h2>Expected End Date:</h2>
+                    <p>{{ task.expected_end_date }}</p><br>
+                    <h2>Expected Duration in Hours:</h2>
+                    <p>{{ task.expected_duration}}</p><br>
+                    <h2>Expected Effort in Hours:</h2>
+                    <p>{{ task.expected_effort}}</p><br>
+                    <h2>Actual Start Date:</h2>
+                    <p>{{ task.actual_start_date }}</p><br>
+                    <h2>Actual End Date:</h2>
+                    <p>{{ task.actual_end_date }}</p><br>
+                    <h2>Actual Duration in Hours:</h2>
+                    <p>{{ task.actual_duration }}</p><br>
+                    <h2>Effort Completed in Hours:</h2>
+                    <p>{{ task.actual_duration }}</p><br>
+                    <h2>Actual Effort in Hours:</h2>
+                    <p>{{ task.actual_effort }}</p><br>
+                    <h2>Percent Complete:</h2>
+                    <p>{{ task.percent_complete }}</p><br>
+                </div>
+            </div>
+        </div>
+        <div>
         </div>
     </div>
-</div>
+</main>
 {% endblock content %}

@@ -1,17 +1,36 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Deliverables</h1>
-<div>
-    <a href="{% url 'update-deliverable' deliverable.id %}">Edit</a>
-    <a href="{% url 'delete-deliverable' deliverable.id %}">Delete</a>
-    <div>
+<main class="layout layout--3">
+
+    <div class="container">
         <div>
-            <h3>{{ deliverable.uuid }}</h5>
-            <h3>{{ deliverable.name }}</h5>
-            <h3>{{ deliverable.description }}</h5>
-            <h5>{{ deliverable.assigned_to }}</h5>
+        </div>
+        <div class="itemListitem">
+            <div class="itemList__header">
+                <div>
+                    <h2>{{ deliverable.uuid }}</h2>
+                </div>
+                <a class="btn btn--edit" href="{% url 'update-deliverable' deliverable.id %}">
+                    Edit
+                </a>
+                <a class="btn btn--delete" href="{% url 'delete-deliverable' deliverable.id %}">
+                    Delete
+                </a>
+            </div>
+            <div class="itemList">
+                <div class="itemListitem__content">
+                    <h3>Name:</h3>
+                    <p>{{ deliverable.name }}<p><br>
+                    <h2><b>Description</b></h2>
+                    <p>{{ deliverable.description }}</p><br>
+                    <h3>Due Date:</h3>
+                    {{ deliverable.due_date }}
+                </div>
+            </div>
+        </div>
+        <div>
         </div>
     </div>
-</div>
+</main>
 {% endblock content %}

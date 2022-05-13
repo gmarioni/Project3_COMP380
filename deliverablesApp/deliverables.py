@@ -2,6 +2,7 @@ from .models import Deliverables
 import core.core as corefunc
 
 def createDeliverable(rjson):
+    print(json)
     obj_d = Deliverables.objects.create(
         name=rjson["name"],
         description=rjson["description"],

@@ -1,25 +1,77 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div class="layout__body">
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div class="form__group">
-            <label for="Issue_name">Issue</label>
-            {{form.issue_id}}
+<main class="layout layout--3">
+
+    <div class="container">
+        <div>
         </div>
-        <div class="form__group">
-            <label for="decision_name">Decision Name</label>
-            {{form.name}}
+        <div class="itemList">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form__group">
+                    <label for="task_name">Issue</label>
+                    {{form.issue_id}}
+                </div>
+                <div class="form__group">
+                    <label for="issue_name">Name</label>
+                    {{form.name}}
+                </div>
+                <div class="form__group">
+                    <label for="issue_description">Description</label>
+                    {{form.description}}
+                </div>
+                <div class="form__group">
+                    <label for "issue_assigned_to">Assigned To</lable>
+                    {{ form.assigned_to }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_expected_start_date">Priority</lable>
+                    {{ form.priority_id }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_expected_end_date">Impact</lable>
+                    {{ form.impact_id }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_expected_duration">Date Created</lable>
+                    {{ form.date_created }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_expected_effort">Date Needed</lable>
+                    {{ form.date_needed }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_expected_effort">Date Of Decision Made</lable>
+                    {{ form.date_made }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_actual_start_date">Expected Completion Date</lable>
+                    {{ form.expected_completion_date }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_actual_end_date">Actual Completion Date</lable>
+                    {{ form.actual_completion_date }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_status">Status</lable>
+                    {{ form.status_id }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_status_description">Description of Status</lable>
+                    {{ form.status_description }}
+                </div>
+                <div class="form__group">
+                    <label for "issue_update_date">Date Updated</lable>
+                    {{ form.update_date }}
+                </div>
+                <div class="form__action">
+                    <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+                    <button class="btn btn--main" type="submit">Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="form__group">
-            <label for="decision_description">Decision Description</label>
-            {{form.description}}
+        <div>
         </div>
-        <div class="form__action">
-            <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
-            <button class="btn btn--main" type="submit">Submit</button>
-        </div>
-    </form>
 </div>
 {% endblock content %}

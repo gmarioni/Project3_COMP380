@@ -5,7 +5,7 @@
 Project running in Django and sqlite3 for the database backend
 
 ## Requirements
-Python 3 or higher
+Python 3 or higher<br>
 Pip 3
 
 ## How to

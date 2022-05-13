@@ -26,6 +26,9 @@
                     <h1>{{ obj.name }}</h1>
                     <p>{{ obj.description }}</p>
                 </div>
+                <div class="itemListitem__meta">
+                    <p class="itemList__topic">Due Date: {{ obj.due_date }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>

@@ -1,11 +1,77 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit" />
-    </form>
+<main class="layout layout--3">
+
+    <div class="container">
+        <div>
+        </div>
+        <div class="itemList">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form__group">
+                    <label for="task_name">Deliverable</label>
+                    {{form.deliverable_id}}
+                </div>
+                <div class="form__group">
+                    <label for="task_name">Name</label>
+                    {{form.name}}
+                </div>
+                <div class="form__group">
+                    <label for="task_description">Description</label>
+                    {{form.description}}
+                </div>
+                <div class="form__group">
+                    <label for "task_assigned_to">Assigned To</lable>
+                    {{ form.assigned_to }}
+                </div>
+                <div class="form__group">
+                    <label for "task_expected_start_date">Expected Start Date</lable>
+                    {{ form.expected_start_date }}
+                </div>
+                <div class="form__group">
+                    <label for "task_expected_end_date">Expected End Date</lable>
+                    {{ form.expected_end_date }}
+                </div>
+                <div class="form__group">
+                    <label for "task_expected_duration">Expected Duration (hrs)</lable>
+                    {{ form.expected_duration }}
+                </div>
+                <div class="form__group">
+                    <label for "task_expected_effort">Expected Effort (hrs)</lable>
+                    {{ form.expected_effort }}
+                </div>
+                <div class="form__group">
+                    <label for "task_actual_start_date">Actual Start Date</lable>
+                    {{ form.actual_start_date }}
+                </div>
+                <div class="form__group">
+                    <label for "task_actual_end_date">Actual End Date</lable>
+                    {{ form.actual_end_date }}
+                </div>
+                <div class="form__group">
+                    <label for "task_actual_duration">Actual Duration (hrs)</lable>
+                    {{ form.actual_duration }}
+                </div>
+                <div class="form__group">
+                    <label for "task_effort_completed">Effort Completed</lable>
+                    {{ form.effort_completed }}
+                </div>
+                <div class="form__group">
+                    <label for "task_actual_effort">Actual Effort (hrs)</lable>
+                    {{ form.actual_effort }}
+                </div>
+                <div class="form__group">
+                    <label for "task_percent_complete">Percent_Complete</lable>
+                    {{ form.percent_complete }}
+                </div>
+                <div class="form__action">
+                    <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+                    <button class="btn btn--main" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div>
+        </div>
 </div>
 {% endblock content %}

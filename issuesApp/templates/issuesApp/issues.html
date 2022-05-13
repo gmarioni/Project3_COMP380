@@ -1,15 +1,39 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<h1>Issues</h1>
-<div>
-    <a href="{% url 'create-issue' %}">Create issues</a>
-    <div>
-        {% for issue in issues %}
+<main class="layout layout--3">
+
+    <div class="container">
         <div>
-            <h5>{{ issue.uuid }} - <a href="{% url 'issue' issue.id %}">{{ issue.name }}</a></h5>
         </div>
-        {% endfor %}
+        <div class="itemList">
+            <div class="itemList__header">
+                <div>
+                    <h2>Issues</h2>
+                </div>
+                <a class="btn btn--main" href="{% url 'create-issue' %}">
+                    Create Issue
+                </a>
+            </div>
+            {% for obj in issues %}
+            <div class="itemListitem">
+                <div clas="itemListitem__header">
+                    <a href ="{% url 'issue' obj.id %}" class="itemList__uuid">
+                        <span>{{ obj.uuid }}</span>
+                    </a>                  
+                </div>
+                <div class="itemListitem__content">
+                    <h1>{{ obj.name }}</h1>
+                    <p>{{ obj.description }}</p>
+                </div>
+                <div class="itemListitem__meta">
+                    <p class="itemList__topic">Assigned To: {{ obj.assigned_to }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div>
+        </div>
     </div>
-</div>
+</main>
 {% endblock content %}

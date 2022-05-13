@@ -1,11 +1,33 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit" />
-    </form>
+<main class="layout layout--3">
+
+    <div class="container">
+        <div>
+        </div>
+        <div class="itemList">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form__group">
+                    <label for="deliverable_name">Name</label>
+                    {{form.name}}
+                </div>
+                <div class="form__group">
+                    <label for="deliverable_description">Description</label>
+                    {{form.description}}
+                </div>
+                <div class="form__group">
+                    <label for "deliverable_due_date">Due Date</lable>
+                    {{ form.due_date }}
+                </div>
+                <div class="form__action">
+                    <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+                    <button class="btn btn--main" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div>
+        </div>
 </div>
 {% endblock content %}

@@ -39,4 +39,4 @@ def delete(request,pk):
         task.delete()
         return redirect('tasks')
     context = {'obj':task}
-    return render(request, 'tasksApp/delete.html', context)
+    return render(request, 'delete.html', context)
