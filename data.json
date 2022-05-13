@@ -1,0 +1,110 @@
+[
+    {
+        "model": "core.priority",
+        "fields" : {
+            "priority": "High"
+        }
+    },
+    {
+        "model": "core.priority",
+        "fields" : {
+            "priority": "Medium"
+        }
+    },
+    {
+        "model": "core.priority",
+        "fields" : {
+            "priority": "Low"
+        }
+    },
+    {
+        "model": "core.status",
+        "fields":{
+            "status": "Open"
+        }
+    },
+    {
+        "model": "core.status",
+        "fields" : {
+            "status": "Closed"
+        }
+    },
+    {
+        "model": "core.status",
+        "fields" : {
+            "status": "In Progress"
+        }
+    },
+    {
+        "model": "core.status",
+        "fields" :{
+            "status": "Hold"
+        }
+    },
+    {
+        "model": "core.status",
+        "fields" : {
+            "status": "Complete"
+        }
+    },    
+    {
+        "model": "core.impact",
+        "fields" : {
+            "impact": "Critical"
+        }
+    },
+    {
+        "model": "core.impact",
+        "fields" : {
+            "impact": "High"
+        }
+    },
+    {
+        "model": "core.impact",
+        "fields" : {
+            "impact": "Medium"
+        }
+    },
+    {
+        "model": "core.impact",
+        "fields" : {
+            "impact": "Low"
+        }
+    },
+    {
+        "model": "core.impact",
+        "fields":{
+            "impact": "Minor"
+        }
+    },
+    {
+        "model": "core.serverity",
+        "fields" : {
+            "serverity": "Critical"
+        }
+    },
+    {
+        "model": "core.serverity",
+        "fields" : {
+            "serverity": "High"
+        }
+    },
+    {
+        "model": "core.serverity",
+        "fields" : {
+            "serverity": "Medium"
+        }
+    },
+    {
+        "model": "core.serverity",
+        "fields" : {
+            "serverity": "Low"
+        }
+    },
+    {
+        "model": "core.serverity",
+        "fields" : {
+            "serverity": "Minor"
+        }
+    }
+  ]
