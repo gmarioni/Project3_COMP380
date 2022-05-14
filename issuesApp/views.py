@@ -12,7 +12,8 @@ def main(request):
 
 def item(request,pk):
     tobj = Issues.objects.get(id=pk)
-    context = {"issue": tobj}
+    context = {"issue": tobj,"actionitems":ifunc.getAssociatedActionItems(pk),
+                "decisions":ifunc.getAssociatedDecisions(pk)}
     return render(request,'issuesApp/issue.html', context)
 
 def create(request):

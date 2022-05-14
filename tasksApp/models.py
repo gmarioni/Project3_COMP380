@@ -1,3 +1,4 @@
+from decimal import Clamped
 from django.db import models
 from deliverablesApp.models import Deliverables
 from django.contrib.auth.models import User
@@ -23,4 +24,22 @@ class Tasks(models.Model):
         db_table = 'TASKS'
     
     def __str__(self) -> str:
-        return self.uuid
+        return f"{ self.uuid} - { self.name}"
+
+class Dependent_Type(models.Model):
+    dependent_type = models.CharField(max_length=40)
+
+    class Meta:
+        db_table = 'DEPENDENT_TYPE'
+
+class Task_Dependency(models.Model):
+    task_id = models.ForeignKey(Tasks,on_delete=models.CASCADE, null=True)
+    dependent_task_id = models.IntegerField(null=True)
+    dependent_type_id = models.ForeignKey(Dependent_Type,on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        db_table = 'TASK_DEPENDENCY'
+    
+
+
+

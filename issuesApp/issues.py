@@ -1,6 +1,9 @@
 from ast import And
 from datetime import datetime
+import imp
 from tasksApp.models import Tasks
+from actionitemsApp.models import Actionitems
+from decisionsApp.models import Decisions
 from django.contrib.auth.models import User
 from core.models import Serverity, Status, Priority
 import core.core as corefunc
@@ -42,3 +45,10 @@ def setAttributes(obj, rjson):
                     setattr(obj,f.name,rjson[f.name])
                 else:
                     setattr(obj,f.name,None)
+
+def getAssociatedActionItems(fk_id) -> Actionitems:
+    return Actionitems.objects.filter(issue_id=fk_id)
+
+
+def getAssociatedDecisions(fk_id) -> Decisions:
+    return Decisions.objects.filter(issue_id=fk_id)

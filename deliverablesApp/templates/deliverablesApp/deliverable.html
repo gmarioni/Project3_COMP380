@@ -7,6 +7,7 @@
         <div>
         </div>
         <div class="itemListitem">
+            <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
             <div class="itemList__header">
                 <div>
                     <h2>{{ deliverable.uuid }}</h2>
@@ -27,6 +28,22 @@
                     <h3>Due Date:</h3>
                     {{ deliverable.due_date }}
                 </div>
+                <br>
+                <div class="itemList__header">
+                    <div>
+                        <h2>List of Tasks:</h2>
+                    </div>
+                </div>
+                {% for task in tasks%}
+                <div class="itemListitem__meta">
+                        <a href="{% url 'task' task.id %}">
+                            {{ task.uuid }}
+                        </a>
+                        <div>
+                            {{ task.name }}
+                        </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div>

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from deliverablesApp.models import Deliverables
+from issuesApp.models import Issues
 from .models import Tasks
 from .forms import TasksForm
 import tasksApp.tasks as tfunc
@@ -13,7 +14,7 @@ def main(request):
 
 def item(request,pk):
     tobj = Tasks.objects.get(id=pk)
-    context = {"task": tobj}
+    context = {"task": tobj, "issue":tfunc.getAssociatedIssues(fk_id=pk)}
     return render(request,'tasksApp/task.html', context)
 
 def create(request):

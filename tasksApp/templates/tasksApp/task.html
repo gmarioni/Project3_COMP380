@@ -7,6 +7,7 @@
         <div>
         </div>
         <div class="itemListitem">
+            <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
             <div class="itemList__header">
                 <div>
                     <h2>{{ task.uuid }}</h2>
@@ -47,6 +48,22 @@
                     <h2>Percent Complete:</h2>
                     <p>{{ task.percent_complete }}</p><br>
                 </div>
+                <br>
+                <div class="itemList__header">
+                    <div>
+                        <h2>List of Issues:</h2>
+                    </div>
+                </div>
+                {% for issue in issues %}
+                <div class="itemListitem__meta">
+                        <a href="{% url 'issue' issue.id %}">
+                            {{ issue.uuid }}
+                        </a>
+                        <div>
+                            {{ issue.name }}
+                        </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div>

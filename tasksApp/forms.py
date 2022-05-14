@@ -1,5 +1,5 @@
 from django.forms import ModelForm, DateInput
-from .models import Tasks
+from .models import Tasks,Task_Dependency
 
 class TasksForm(ModelForm):
     class Meta:

@@ -1,4 +1,8 @@
+import imp
+
+from issuesApp.models import Issues
 from .models import Deliverables
+from tasksApp.models import Tasks
 import core.core as corefunc
 
 def createDeliverable(rjson):
@@ -16,3 +20,6 @@ def updateDeliberable(obj_d,rjson):
         if f.name not in ("id","uuid"):
             setattr(obj_d,f.name,rjson[f.name])
     obj_d.save()
+
+def getAssociatedTasks(fk_id) -> Tasks:
+    return Tasks.objects.filter(deliverable_id=fk_id)

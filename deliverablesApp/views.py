@@ -13,7 +13,7 @@ def main(request):
 
 def item(request,pk):
     obj = Deliverables.objects.get(id=pk)
-    context = {"deliverable": obj}
+    context = {"deliverable": obj,"tasks":dfunc.getAssociatedTasks(fk_id=pk)}
     return render(request,'deliverablesApp/deliverable.html', context)
 
 def create(request):

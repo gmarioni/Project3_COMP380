@@ -7,6 +7,7 @@
         <div>
         </div>
         <div class="itemListitem">
+            <a href="{{request.META.HTTP_REFERER}}">Go Back</a>
             <div class="itemList__header">
                 <div>
                     <h2>{{ issue.uuid }}</h2>
@@ -45,6 +46,38 @@
                     <h2>Date Updated:</h2>
                     <p>{{ issue.update_date }}</p><br>
                 </div>
+                <br>
+                <div class="itemList__header">
+                    <div>
+                        <h2>List of Action Items:</h2>
+                    </div>
+                </div>
+                {% for actionitem in actionitems%}
+                <div class="itemListitem__meta">
+                        <a href="{% url 'actionitem' actionitem.id %}">
+                            {{ actionitem.uuid }}
+                        </a>
+                        <div>
+                            {{ actionitem.name }}
+                        </div>
+                </div>
+                {% endfor %}
+                <br>
+                <div class="itemList__header">
+                    <div>
+                        <h2>List of Decision:</h2>
+                    </div>
+                </div>
+                {% for decision in decisions%}
+                <div class="itemListitem__meta">
+                        <a href="{% url 'decision' decision.id %}">
+                            {{ decision.uuid }}
+                        </a>
+                        <div>
+                            {{ decision.name }}
+                        </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <div>
