@@ -44,4 +44,4 @@ In the root of the project directory run the following commands
 
 If no errors happen
 
-Open up 127.0.0.1:5000 in your browser
+Open up 127.0.0.1:8000 in your browser

@@ -22,8 +22,6 @@ def setAttributes(obj, rjson):
                 setattr(obj,f.name,Deliverables.objects.get(id=rjson[f.name]))
             elif f.name == 'assigned_to' and len(str(rjson[f.name])) > 0:
                 setattr(obj,f.name,User.objects.get(id=rjson[f.name]))
-                if rjson["date_assigned"] == 0:
-                    setattr(obj,"date_assigned",datetime.today().strftime("%Y-%m-%d"))
             elif f.name == 'expected_duration' and len(str(rjson[f.name])) < 1:
                 if len(str(rjson["expected_start_date"])) > 0 and len(str(rjson["expected_end_date"])) > 0:
                     setattr(obj,f.name,corefunc.calculateDuration(rjson["expected_start_date"], rjson["expected_end_date"]))
@@ -31,6 +29,8 @@ def setAttributes(obj, rjson):
                 if len(str(rjson["expected_start_date"])) > 0 and len(str(rjson["expected_duration"])) > 0 \
                     and len(str(rjson["expected_end_date"])) < 1:
                     setattr(obj,f.name,corefunc.calculateEndDate(rjson["expected_start_date"], int(rjson["expected_duration"])))
+                elif len(str(rjson[f.name])) > 0:
+                    setattr(obj,f.name,rjson[f.name])
             else:
                 if len(str(rjson[f.name])) > 0:
                     setattr(obj,f.name,rjson[f.name])

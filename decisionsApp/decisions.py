@@ -5,7 +5,7 @@ from core.models import Impact, Status, Priority
 import core.core as corefunc
 from .models import Decisions
 
-def createIssues(rjson):
+def createDecisions(rjson):
     obj = Decisions.objects.create()
     print(rjson)
     setattr(obj,"uuid",corefunc.generateUUID(Decisions._meta.db_table,obj.id))
@@ -13,7 +13,7 @@ def createIssues(rjson):
     setAttributes(obj,rjson)
     obj.save()
 
-def updateIssues(obj,rjson):
+def updateDecisions(obj,rjson):
     setAttributes(obj, rjson)
     obj.save()
 
@@ -25,8 +25,6 @@ def setAttributes(obj, rjson):
                 setattr(obj,f.name,Issues.objects.get(id=rjson[f.name]))
             elif f.name == 'assigned_to' and len(str(rjson[f.name])) > 0:
                 setattr(obj,f.name,User.objects.get(id=rjson[f.name]))
-                if rjson["date_assigned"] == 0:
-                    setattr(obj,"date_assigned",datetime.today().strftime("%Y-%m-%d"))
             elif f.name == 'impact_id' and len(str(rjson[f.name])) > 0:
                 setattr(obj,f.name,Impact.objects.get(id=rjson[f.name]))
             elif f.name == 'status_id' and len(str(rjson[f.name])) > 0:

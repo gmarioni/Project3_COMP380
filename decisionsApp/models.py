@@ -29,7 +29,8 @@ class Decisions(models.Model):
 
 class Notes(models.Model):
     notes = models.TextField(blank=True, null=True)
-    decision_id = models.ForeignKey(Decisions, on_delete=models.SET_NULL,blank=True, null=True)
+    decision_id = models.ForeignKey(Decisions, on_delete=models.CASCADE,blank=True, null=True)
+    node_date = models.DateField(blank=True, null=True)
 
     class Meta:
         db_table = 'NOTES'

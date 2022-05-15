@@ -18,24 +18,24 @@ def item(request,pk):
 def create(request):
     form = DecisionsForm
     if request.method == 'POST':
-        dfunc.createIssues(request.POST)
+        dfunc.createDecisions(request.POST)
         return redirect('decisions')
     context = {'form':form}
     return render(request, 'decisionsApp/decision_form.html', context)
 
-# def update(request,pk):
-#     issue = Issues.objects.get(id=pk)
-#     form = IssuesForm(instance=issue)
-#     if request.method == 'POST':
-#         ifunc.updateIssues(issue, request.POST)
-#         return redirect('issue',pk)
-#     context = {'form':form}
-#     return render(request, 'issuesApp/issues_form.html', context)
+def update(request,pk):
+    decision = Decisions.objects.get(id=pk)
+    form = DecisionsForm(instance=decision)
+    if request.method == 'POST':
+        dfunc.updateDecisions(decision, request.POST)
+        return redirect('decision',pk)
+    context = {'form':form}
+    return render(request, 'decisionsApp/decision_form.html', context)
 
-# def delete(request,pk):
-#     issue = Issues.objects.get(id=pk)
-#     if request.method == 'POST':
-#         issue.delete()
-#         return redirect('issues')
-#     context = {'obj':issue}
-#     return render(request, 'delete.html', context)
+def delete(request,pk):
+    decision = Decisions.objects.get(id=pk)
+    if request.method == 'POST':
+        decision.delete()
+        return redirect('decision')
+    context = {'obj':decision}
+    return render(request, 'delete.html', context)

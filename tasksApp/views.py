@@ -14,7 +14,7 @@ def main(request):
 
 def item(request,pk):
     tobj = Tasks.objects.get(id=pk)
-    context = {"task": tobj, "issue":tfunc.getAssociatedIssues(fk_id=pk)}
+    context = {"task": tobj, "issues":tfunc.getAssociatedIssues(fk_id=pk)}
     return render(request,'tasksApp/task.html', context)
 
 def create(request):

@@ -27,7 +27,7 @@ def setAttributes(obj, rjson):
                 setattr(obj,f.name,Tasks.objects.get(id=rjson[f.name]))
             elif f.name == 'assigned_to' and len(str(rjson[f.name])) > 0:
                 setattr(obj,f.name,User.objects.get(id=rjson[f.name]))
-                if rjson["date_assigned"] == 0:
+                if len(rjson["date_assigned"]) < 1:
                     setattr(obj,"date_assigned",datetime.today().strftime("%Y-%m-%d"))
             elif f.name == 'serverity_id' and len(str(rjson[f.name])) > 0:
                 setattr(obj,f.name,Serverity.objects.get(id=rjson[f.name]))
